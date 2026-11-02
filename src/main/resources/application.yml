@@ -1,6 +1,6 @@
 spring:
   application:
-    name: yu-ai-code-mother-backend
+    name: xuanjia-zerocode-backend
   profiles:
     active:
       - local

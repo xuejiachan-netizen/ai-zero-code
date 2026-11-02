@@ -1,6 +1,7 @@
 package com.xuanjia.xuanjiazerocode.ai;
 
 import dev.langchain4j.model.chat.ChatModel;
+import dev.langchain4j.model.chat.StreamingChatModel;
 import dev.langchain4j.service.AiServices;
 import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Bean;
@@ -12,10 +13,16 @@ public class AICodeGenerateFactory {
     @Resource
     private ChatModel chatModel;
 
+    @Resource
+    private StreamingChatModel streamingChatModel;
+
     @Bean
     public AICodeGenerateService aiCodeGenerate(){
-        AICodeGenerateService aiCodeGenerateService = AiServices.create(AICodeGenerateService.class, chatModel);
 
+        AICodeGenerateService aiCodeGenerateService = AiServices.builder(AICodeGenerateService.class)
+                .chatModel(chatModel)
+                .streamingChatModel(streamingChatModel)
+                .build();
         return aiCodeGenerateService;
     }
 }

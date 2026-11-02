@@ -6,6 +6,7 @@ import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import reactor.core.publisher.Flux;
 
 
 @SpringBootTest
@@ -37,8 +38,9 @@ class AICodeGenerateFactoryTest {
     void demo(){
         String userMessage = "你好，只需要回复你好";
 
-        String demo = generateService.demo(userMessage);
+        HtmlCodeResult htmlCodeResult = generateService.codeGenerateHtml(userMessage);
+//        Flux<String> stringFlux = generateService.codeGenerateHtmlFlux(userMessage);
 
-        Assertions.assertNotNull(demo);
+        Assertions.assertNotNull(htmlCodeResult);
     }
 }

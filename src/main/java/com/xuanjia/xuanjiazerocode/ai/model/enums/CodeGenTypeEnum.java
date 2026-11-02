@@ -1,4 +1,4 @@
-package com.xuanjia.xuanjiazerocode.ai.model;
+package com.xuanjia.xuanjiazerocode.ai.model.enums;
 
 import cn.hutool.core.util.ObjUtil;
 import lombok.Getter;
